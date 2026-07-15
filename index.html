@@ -25,39 +25,16 @@
     }
     a.ios { background: #fff; color: #111; }
     a.android { background: #3ddc84; color: #063; }
-    .note { margin-top: 8px; font-size: 0.85rem; color: #9a90b0; }
-    .hidden { display: none; }
+    .note { margin-top: 8px; font-size: 0.85rem; color: #9a90b0; line-height: 1.4; }
   </style>
 </head>
 <body>
   <div class="card">
     <h1>Download myParish</h1>
-    <p id="msg">Get the parish app for your phone.</p>
-    <a class="btn ios" id="ios" href="https://apps.apple.com/us/app/myparish-classic/id892066479">Download for iPhone / iPad</a>
-    <a class="btn android" id="android" href="https://play.google.com/store/apps/details?id=com.michiganlabs.myparish">Download for Android</a>
-    <p class="note">Opens the correct app store for your phone.</p>
+    <p>Choose your phone type. This opens the right app store.</p>
+    <a class="btn ios" href="https://apps.apple.com/us/app/myparish-classic/id892066479">iPhone / iPad (App Store)</a>
+    <a class="btn android" href="https://play.google.com/store/apps/details?id=com.michiganlabs.myparish">Android (Google Play)</a>
+    <p class="note">On some Android phones you may then be asked Google Play or Samsung store — pick Google Play for myParish.</p>
   </div>
-  <script>
-    (function () {
-      var ua = navigator.userAgent || "";
-      var ios = /iPhone|iPad|iPod/i.test(ua);
-      if (!ios && /Macintosh/i.test(ua) && navigator.maxTouchPoints > 1) ios = true;
-      var android = /Android/i.test(ua);
-      var iosBtn = document.getElementById("ios");
-      var andBtn = document.getElementById("android");
-      var msg = document.getElementById("msg");
-      if (ios) {
-        msg.textContent = "Opening the App Store…";
-        andBtn.classList.add("hidden");
-        setTimeout(function () { location.replace(iosBtn.href); }, 150);
-      } else if (android) {
-        msg.textContent = "Opening Google Play…";
-        iosBtn.classList.add("hidden");
-        setTimeout(function () { location.replace(andBtn.href); }, 150);
-      } else {
-        msg.textContent = "Choose your phone type:";
-      }
-    })();
-  </script>
 </body>
 </html>
